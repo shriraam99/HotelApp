@@ -1,0 +1,28 @@
+<p>rooms-list works!</p>
+<!-- Date Selection -->
+<div>
+    <label for="datePicker">Select Date:</label>
+    <input type="date" id="datePicker" [(ngModel)]="selectedDate" name="datePicker">
+    <button (click)="fetchRooms()">Submit</button>
+</div>
+
+<!-- Rooms Grid View -->
+<table *ngIf="rooms && rooms.length > 0">
+    <thead>
+        <tr>
+            <th>Room No</th>
+            <th>Room Type</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let room of rooms">
+            <td>{{ room.number }}</td>
+            <td>{{ room.type }}</td>
+            <td>{{ room.isBooked ? 'Booked' : 'Not Booked' }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Add Room Button -->
+<button (click)="navigateToAddRoom()">Add Room</button>
